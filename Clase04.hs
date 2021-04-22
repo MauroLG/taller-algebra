@@ -42,3 +42,15 @@ sumaPotencias q n m | m == 0 = 0
 sumaRacionales :: Int -> Int -> Float 
 sumaRacionales n m | m == 0 = 0 
                    | m >  0 = sumaRacionales n (m-1) + fromIntegral(sumatoria n) / fromIntegral m 
+
+g1 :: Int -> Int -> Int
+g1 i n | n < i = 0
+       | otherwise = g1 i (n-1) + i ^ n
+
+faux :: Int -> Int -> Int
+faux n m | m == 1 = 1
+         | otherwise = faux n (m-1) + m ^ n
+
+g2 :: Int -> Int
+g2 n | n == 1 = 1
+     | otherwise = g2 (n-1) + faux n n 
