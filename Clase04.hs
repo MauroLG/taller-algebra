@@ -54,3 +54,13 @@ faux n m | m == 1 = 1
 g2 :: Int -> Int
 g2 n | n == 1 = 1
      | otherwise = g2 (n-1) + faux n n 
+
+g3 :: Int -> Int
+g3 n | n <= 0 = 0
+     | n `mod` 2 == 0 = 2^n + g3 (n-2)
+     | n `mod` 2 /= 0 = g3 (n-1)
+
+sumaIguales :: Int -> Int
+sumaIguales n | n <= 0 = 0
+              | digitosIguales n == False = sumaIguales(n-1)
+              | digitosIguales n == True = sumaIguales(n-1) + n
